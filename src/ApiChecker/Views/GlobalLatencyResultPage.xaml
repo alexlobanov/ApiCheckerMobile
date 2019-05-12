@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             Title="{Binding Title}"
+             x:Class="ApiChecker.Views.GlobalLatencyResultPage">
+    <ContentPage.Content>
+        <ListView SeparatorVisibility="None" 
+                  HasUnevenRows="true"
+                  ItemsSource="{Binding LatencyResult.LocationsTested}">
+            <ListView.RowHeight>
+                <OnPlatform x:TypeArguments="x:Int32">
+                    <On Platform="Android, iOS" Value="95" />
+                </OnPlatform>
+            </ListView.RowHeight>
+            <ListView.Header>
+                <StackLayout Padding="10" BackgroundColor="{StaticResource PrimaryDark}">
+                    <Label Text="Latency" FontSize="14" FontAttributes="Bold" TextColor="White" />
+                    <microcharts:ChartView Margin="-20,0,-20,0" 
+                                           HeightRequest="190" BackgroundColor="Transparent" 
+                                           Chart="{Binding LatencyChart}" />
+                </StackLayout>
+           </ListView.Header>
+           <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowSpacing="2" Margin="10" ColumnSpacing="20" Padding="10,10,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                           
+                            
+                             <Frame Grid.RowSpan="4" HasShadow="false"
+                                    CornerRadius="30" WidthRequest="25" HeightRequest="40"
+                                    BackgroundColor="{StaticResource TagSuccess}" />
+                            <Image Grid.RowSpan="4" VerticalOptions="Center" HorizontalOptions="Center">
+                                <Image.Source>
+                                    <OnPlatform x:TypeArguments="ImageSource">
+                                        <On Platform="Android, iOS" Value="ic_star_empty" />
+                                    </OnPlatform>
+                                </Image.Source>
+                            </Image>
+                            
+                            <Label Grid.Column="1" Text="{Binding Location}" TextColor="Black" FontSize="16" FontAttributes="Bold" />
+                            <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Start">
+                                <Image WidthRequest="12" VerticalOptions="Center" Source="ic_location"/>
+                                <Label VerticalOptions="Center" Text="{Binding Location}" Style="{StaticResource ValueLabel}" />
+                                <Image WidthRequest="12" VerticalOptions="Center" Source="ic_time"/>
+                                <Label VerticalOptions="Center" Style="{StaticResource ValueLabel}" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Req. Time: " Style="{StaticResource ValueLabel}"/>
+                                            <Span Text="{Binding TotalTime}" FontAttributes="Bold" Style="{StaticResource ValueLabel}"/>
+                                            <Span Text=" (ms)" Style="{StaticResource ValueLabel}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                            <ContentView Grid.Column="1"  Grid.Row="2" HorizontalOptions="Start">
+                                <Label Style="{StaticResource ValueLabel}" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="DNS Resolution: " Style="{StaticResource ValueLabel}"/>
+                                            <Span Text="{Binding Dns}" FontAttributes="Bold" Style="{StaticResource ValueLabel}"/>
+                                            <Span Text=" (ms)" Style="{StaticResource ValueLabel}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </ContentView>
+                            <ContentView Grid.Column="1"  Grid.Row="3" HorizontalOptions="Start">
+                                <Label Text="{Binding Dns}" Style="{StaticResource ValueLabel}" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="First Byte Recived: " Style="{StaticResource ValueLabel}"/>
+                                            <Span Text="{Binding FirstByte}" FontAttributes="Bold" Style="{StaticResource ValueLabel}"/>
+                                            <Span Text=" (ms)" Style="{StaticResource ValueLabel}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </ContentView>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

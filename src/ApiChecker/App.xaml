@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms" 
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:custom="clr-namespace:ApiChecker.Controls"
+                        xmlns:converters="clr-namespace:ApiChecker.Converters"
+                        xmlns:behaviors="clr-namespace:ApiChecker.Behaviors"
+                        xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms" 
+                        x:Class="ApiChecker.App">
+    <prism:PrismApplication.Resources>
+        <ResourceDictionary>
+            <!-- Application resource dictionary -->
+            <Color x:Key="HeaderColor">#213654</Color>
+            <Color x:Key="ArrowColor">#768ea0</Color>
+            <Color x:Key="BorderColor">#d2d7dd</Color>
+            <Color x:Key="TagSuccess">#43A047</Color>
+            <Color x:Key="TagError">#F56D50</Color>
+            <Color x:Key="TabSubTextColor">#96a7dd </Color>
+            <Color x:Key="GreenDark">#43A047</Color>
+            <Color x:Key="RedPrimary">#F56D50</Color>
+            
+            <Color x:Key="Primary">#66affc</Color>
+            <Color x:Key="Dark">#213654</Color>
+            <Color x:Key="PrimaryDark">#66affc</Color>
+            
+                   
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <Style x:Key="ValueLabel" TargetType="Label">
+                <Setter Property="FontSize">12</Setter>
+                <Setter Property="TextColor" Value="{StaticResource Dark}" />
+            </Style>
+            
+            <!--  Fonts  -->
+            <OnPlatform x:Key="TextBold" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Poppins" />
+                <On Platform="Android" Value="fonts/OldStandard-Bold.ttf#Old Standard TT" />
+            </OnPlatform>
+            
+            
+             <OnPlatform x:Key="TextMontserrat" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Montserrat" />
+                <On Platform="Android" Value="fonts/Montserrat-Regular.ttf#Montserrat" />
+            </OnPlatform>
+            
+            <OnPlatform x:Key="TextRalewayBold" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Raleway-Bold" />
+                <On Platform="Android" Value="fonts/Raleway-Bold.ttf#Raleway-Bold" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="TextLight" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Poppins Light" />
+                <On Platform="Android" Value="fonts/OldStandard-Bold.ttf#Old Standard TT" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="TextSemiBold" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Poppins SemiBold" />
+                <On Platform="Android" Value="fonts/OldStandard-Bold.ttf#Old Standard TT" />
+            </OnPlatform>
+
+            <!--  Styles  -->
+            <Style x:Key="Header" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource TextBold}" />
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="TextColor" Value="#213654" />
+            </Style>
+            
+            <Style x:Key="GuideText" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource TextMontserrat}" />
+            </Style>
+
+            <Style x:Key="GuideTextBold" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource TextRalewayBold}" />
+            </Style>
+            
+            <Style x:Key="SubText" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource TextLight}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="#95a8b6" />
+            </Style>
+
+            <Style x:Key="SubTextSemiBold" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource TextSemiBold}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="#95a8b6" />
+            </Style>
+
+            <Style x:Key="SubHeader" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource TextBold}" />
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="Margin" Value="0,20,0,0" />
+                <Setter Property="TextColor" Value="#213654" />
+            </Style>
+
+            <Style x:Key="TempLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource TextBold}" />
+                <Setter Property="FontSize" Value="38" />
+                <Setter Property="TextColor" Value="#ffffff" />
+            </Style>
+
+            <Style x:Key="TagLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource TextBold}" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="#ffffff" />
+            </Style>
+
+            <Style x:Key="TabHeader" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource TextSemiBold}" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#ffffff" />
+            </Style>
+
+            <Style x:Key="TabSubText" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource TextLight}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{StaticResource TabSubTextColor}" />
+            </Style>
+            
+            <Style x:Key="EntryStyle"
+                   TargetType="{x:Type Entry}">
+                <Setter Property="behaviors:LineColorBehavior.ApplyLineColor"
+                        Value="True" />
+                <Setter Property="behaviors:LineColorBehavior.LineColor"
+                        Value="{StaticResource Dark}" />
+            </Style>
+
+            <!--  Implicit Styles  -->
+            <Style TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0" />
+                <Setter Property="ColumnSpacing" Value="0" />
+            </Style>
+
+            
+            
+            <Style x:Key="buttonStyle" TargetType="Button">
+                    <Setter Property="TextColor" Value="White" />
+                    <Setter Property="BorderRadius" Value="4" />
+                    <Setter Property="FontSize" Value="Medium" />
+                    <Setter Property="BackgroundColor" Value="{StaticResource GreenDark}" />
+                    <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="40" Android="50" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        
+            <Style TargetType="Button" BasedOn="{StaticResource buttonStyle}" />
+            <Style TargetType="custom:AnimatedButton" BasedOn="{StaticResource buttonStyle}" />
+            <Style x:Key="deleteButtonStyle" TargetType="Button" BasedOn="{StaticResource buttonStyle}">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{StaticResource RedPrimary}" />
+            </Style>
+            
+            <Style x:Key="animatedButton" TargetType="custom:AnimatedButton" BasedOn="{StaticResource buttonStyle}">
+                <Setter Property="BackgroundColor" Value="#43A047" />
+                <Setter Property="BorderColor" Value="#AFFF" />
+                <Setter Property="TextColor" Value="#CFFF" />
+                <Setter Property="BorderWidth" Value=".5" />
+            </Style>
+        </ResourceDictionary>
+    </prism:PrismApplication.Resources>
+</prism:PrismApplication>

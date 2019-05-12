@@ -1,0 +1,32 @@
+# ApiChecker Mobile Client (only Public Latency Check now)
+
+## Basic description
+Application Name | ApiChecker Mobile
+----------------:|:---
+Platform         | iOS, Android
+Code Type        | Hybrid (Xamarin.Forms framework)
+
+This application will help you to check your Website or API availability and performance on Go.
+
+## Tech stack:
+This project was created using the Xamarin.Forms and Prism MVVM framework.
+
+
+## Current Supported Features:
+
+Currently supporting only:
+
+* Latency Check Feature (based on ApiChecker Open API without auth)
+
+## Roadmap:
+
+* Internalization Support (WIP currently)
+* Persistent Storage For Checks (so you can see the diff between checks/verifies)
+* Login with your ApiChecker Account
+* Add ability to view created monitors and project on ApiChecker
+* Create PushNotifications alerts directly to your mobile
+* TBD
+
+
+#Screenshots:
+

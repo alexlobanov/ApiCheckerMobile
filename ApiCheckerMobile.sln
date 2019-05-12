@@ -1,11 +1,11 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiChecker", "ApiChecker\ApiChecker\ApiChecker.csproj", "{F46895E6-9BEB-4538-B57B-DC0F92A5AA19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiChecker", "src\ApiChecker\ApiChecker.csproj", "{F46895E6-9BEB-4538-B57B-DC0F92A5AA19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiChecker.Android", "ApiChecker\ApiChecker.Android\ApiChecker.Android.csproj", "{B62C5F66-0BB9-40F2-A578-2491AAD27387}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiChecker.Android", "src\ApiChecker.Android\ApiChecker.Android.csproj", "{B62C5F66-0BB9-40F2-A578-2491AAD27387}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiChecker.iOS", "ApiChecker\ApiChecker.iOS\ApiChecker.iOS.csproj", "{D8379C5F-33F1-4210-8BE4-B52104744ACF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiChecker.iOS", "src\ApiChecker.iOS\ApiChecker.iOS.csproj", "{D8379C5F-33F1-4210-8BE4-B52104744ACF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
