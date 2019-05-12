@@ -3,6 +3,7 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         xmlns:custom="clr-namespace:ApiChecker.Controls"
                         xmlns:converters="clr-namespace:ApiChecker.Converters"
+                        xmlns:behaviors="clr-namespace:ApiChecker.Behaviors"
                         xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms" 
                         x:Class="ApiChecker.App">
     <prism:PrismApplication.Resources>
@@ -11,11 +12,26 @@
             <Color x:Key="HeaderColor">#213654</Color>
             <Color x:Key="ArrowColor">#768ea0</Color>
             <Color x:Key="BorderColor">#d2d7dd</Color>
-            <Color x:Key="TagColor">#ffa318</Color>
-            <Color x:Key="TabSubTextColor">#96a7dd</Color>
+            <Color x:Key="TagSuccess">#43A047</Color>
+            <Color x:Key="TagError">#F56D50</Color>
+            <Color x:Key="TabSubTextColor">#96a7dd </Color>
             <Color x:Key="GreenDark">#43A047</Color>
             <Color x:Key="RedPrimary">#F56D50</Color>
-
+            
+            <Color x:Key="Primary">#66affc</Color>
+            <Color x:Key="Dark">#213654</Color>
+            <Color x:Key="PrimaryDark">#66affc</Color>
+            
+                   
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <Style x:Key="ValueLabel" TargetType="Label">
+                <Setter Property="FontSize">12</Setter>
+                <Setter Property="TextColor" Value="{StaticResource Dark}" />
+            </Style>
+            
             <!--  Fonts  -->
             <OnPlatform x:Key="TextBold" x:TypeArguments="x:String">
                 <On Platform="iOS" Value="Poppins" />
@@ -81,6 +97,14 @@
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="TextColor" Value="{StaticResource TabSubTextColor}" />
             </Style>
+            
+            <Style x:Key="EntryStyle"
+                   TargetType="{x:Type Entry}">
+                <Setter Property="behaviors:LineColorBehavior.ApplyLineColor"
+                        Value="True" />
+                <Setter Property="behaviors:LineColorBehavior.LineColor"
+                        Value="{StaticResource Dark}" />
+            </Style>
 
             <!--  Implicit Styles  -->
             <Style TargetType="Grid">
@@ -88,9 +112,7 @@
                 <Setter Property="ColumnSpacing" Value="0" />
             </Style>
 
-            <Style TargetType="Frame">
-                <Setter Property="Padding" Value="0" />
-            </Style>
+            
             
             <Style x:Key="buttonStyle" TargetType="Button">
                     <Setter Property="TextColor" Value="White" />

@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ApiChecker.DataServices.Interfaces;
 using ApiChecker.Models;
 using ApiChecker.Models.Enums;
+using ApiChecker.Repository.Interfaces;
 
-namespace ApiChecker.DataServices.Fake
+namespace ApiChecker.Repository.Fake
 {
-    public class FakeGlobalLatencyService : IGlobalLatencyService
+    public class FakeLatencyRepository : ILatencyRepository
     {
-        public FakeGlobalLatencyService()
-        {
-        }
-
-        public Task<GlobalLatencyModel> VeifyGlobalLatencyForService(GlobalLatenctyRequestModel globalLatenctyRequest)
+        public Task<GlobalLatencyModel> GetLatency(GlobalLatenctyRequestModel globalLatenctyRequest)
         {
             return Task.FromResult(new GlobalLatencyModel()
             {

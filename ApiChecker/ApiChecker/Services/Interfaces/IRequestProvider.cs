@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace ApiChecker.DataServices.Base
+namespace ApiChecker.Services.Interfaces
 {
     public interface IRequestProvider
     {

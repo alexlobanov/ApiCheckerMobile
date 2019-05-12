@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ApiChecker.DataServices.Interfaces;
 using ApiChecker.Helpers;
 using ApiChecker.Models;
+using ApiChecker.Repository.Interfaces;
 using ApiChecker.Views;
 using Prism.Commands;
 using Prism.Navigation;
@@ -17,13 +17,13 @@ namespace ApiChecker.ViewModels
         public List<TutorialItemModel> TutorialGuides { get; set; }
         public DelegateCommand CloseGuideCommand { get; set; }
 
-        private readonly ITutorialService _tutorialService;
+        private readonly ITutorialRepository _tutorialRepository;
 
         public GuidePageViewModel(INavigationService navigationService,
-                                  ITutorialService tutorialService) :
+                                  ITutorialRepository tutorialRepository) :
             base(navigationService)
         {
-            _tutorialService = tutorialService;
+            _tutorialRepository = tutorialRepository;
             TutorialGuides = new List<TutorialItemModel>();
             CloseGuideCommand = new DelegateCommand(CloseCommandAction);
         }
@@ -38,7 +38,7 @@ namespace ApiChecker.ViewModels
         public override void OnNavigatingTo(INavigationParameters parameters)
 		{
             base.OnNavigatingTo(parameters);
-            TutorialGuides = new List<TutorialItemModel>(_tutorialService.GetTutorialGuides());
+            TutorialGuides = new List<TutorialItemModel>(_tutorialRepository.GetTutorialGuides());
 		}
 	}
 }

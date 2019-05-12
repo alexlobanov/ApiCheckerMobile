@@ -1,4 +1,5 @@
 ﻿using ApiChecker.Exceptions;
+using ApiChecker.Services.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -8,7 +9,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiChecker.DataServices.Base
+namespace ApiChecker.Services
 {
     public class JsonRequestProvider : IRequestProvider
     {

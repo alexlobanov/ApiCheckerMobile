@@ -95,6 +95,7 @@
     <ITunesArtwork Include="iTunesArtwork@1x.png" />
     <ITunesArtwork Include="iTunesArtwork@2x.png" />
     <ITunesArtwork Include="iTunesArtwork@3x.png" />
+    <Compile Include="Effects\EntryLineColorEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json" />
@@ -144,6 +145,15 @@
     <BundleResource Include="Resources\Montserrat-Regular.ttf" />
     <BundleResource Include="Resources\PT_Sans-Web-Bold.ttf" />
     <BundleResource Include="Resources\Raleway-Bold.ttf" />
+    <BundleResource Include="Resources\ic_time.png" />
+    <BundleResource Include="Resources\ic_time%402x.png" />
+    <BundleResource Include="Resources\ic_time%403x.png" />
+    <BundleResource Include="Resources\ic_location.png" />
+    <BundleResource Include="Resources\ic_location%402x.png" />
+    <BundleResource Include="Resources\ic_location%403x.png" />
+    <BundleResource Include="Resources\ic_star_empty.png" />
+    <BundleResource Include="Resources\ic_star_empty%402x.png" />
+    <BundleResource Include="Resources\ic_star_empty%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -181,6 +191,12 @@
       <Project>{F46895E6-9BEB-4538-B57B-DC0F92A5AA19}</Project>
       <Name>ApiChecker</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\.imageset\" />
+    <Folder Include="Assets.xcassets\ic_time.imageset\" />
+    <Folder Include="Assets.xcassets\ic_time.imageset\" />
+    <Folder Include="Effects\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

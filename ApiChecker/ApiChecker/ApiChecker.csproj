@@ -22,19 +22,18 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Services\Interfaces\" />
-    <Folder Include="Utils\" />
     <Folder Include="Validations\" />
     <Folder Include="Models\" />
     <Folder Include="Controls\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="DataServices\" />
-    <Folder Include="DataServices\Interfaces\" />
-    <Folder Include="DataServices\Fake\" />
-    <Folder Include="DataServices\Base\" />
     <Folder Include="Models\Enums\" />
     <Folder Include="Helpers\" />
     <Folder Include="ViewModels\Base\" />
     <Folder Include="Converters\" />
     <Folder Include="Effects\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Repository\Interfaces\" />
+    <Folder Include="Repository\Fake\" />
+    <Folder Include="Behaviors\" />
   </ItemGroup>
 </Project>

@@ -6,11 +6,11 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
 using ApiChecker.Services.Interfaces;
-using ApiChecker.DataServices.Interfaces;
-using ApiChecker.DataServices.Base;
-using ApiChecker.DataServices;
 using System.Threading.Tasks;
 using ApiChecker.Services;
+using ApiChecker.Repository.Interfaces;
+using ApiChecker.Repository;
+using ApiChecker.Repository.Fake;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ApiChecker
@@ -41,10 +41,16 @@ namespace ApiChecker
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<INavigatorService, NavigatorService>();
-            containerRegistry.Register<ITutorialService, TutorialService>();
             containerRegistry.Register<IRequestProvider, JsonRequestProvider>();
-            containerRegistry.Register<IGlobalLatencyService, GlobalLatencyService>();
+            containerRegistry.Register<ITutorialRepository, TutorialRepository>();
+            containerRegistry.Register<IAppLogger, AppCenterLogger>();
 
+#if DEBUG
+            //containerRegistry.Register<ILatencyRepository, FakeLatencyRepository>();
+            containerRegistry.Register<ILatencyRepository, LatencyRepository>();
+#else
+            containerRegistry.Register<ILatencyRepository, LatencyRepository>();
+#endif
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<GlobalLatencyResultPage>();
             containerRegistry.RegisterForNavigation<MainPage>();

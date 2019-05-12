@@ -4,9 +4,9 @@
              x:Class="ApiChecker.Views.MainPage" 
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              xmlns:custom="clr-namespace:ApiChecker.Controls"
+             xmlns:behaviors="clr-namespace:ApiChecker.Behaviors"
              xmlns:converters="clr-namespace:ApiChecker.Converters"
              NavigationPage.HasNavigationBar="False"
-            
              xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
              Title="{Binding Title}">
@@ -16,7 +16,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentView.Content>
-        <Grid VerticalOptions="FillAndExpand">
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -28,7 +28,7 @@
             
             <StackLayout VerticalOptions="FillAndExpand" Padding="20,30,20,0">
                  <!--  Header Section  -->
-                <Grid Margin="0,20,0,0">
+                <Grid Margin="0,20,0,0" VerticalOptions="Start">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="AUTO" />
@@ -44,15 +44,19 @@
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
+                        
+                         <Label Style="{StaticResource SubText}" 
+                                Margin="0, 12, 0, 0"
+                                Text="This applicaiton based on ApiChecker open API and verify your website latency around the globe"/>
                     </StackLayout>
                     
                 </Grid>
                 
                 <!--  URL Entry -->
-                <StackLayout Margin="0,20,0,0"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center" >
-                     <Label>
+                <StackLayout 
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="CenterAndExpand" >
+                     <Label HorizontalOptions="Start">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Style="{StaticResource SubTextSemiBold}" Text="Input your Website address in field below:" />
@@ -60,29 +64,37 @@
                         </Label.FormattedText>
                     </Label>
               
-                        <Entry Placeholder="https://mysite.com" 
-                               Margin="0" BackgroundColor="Transparent" 
-                               FontSize="26"
-                               IsEnabled="{Binding IsBusy, Converter={StaticResource NegateBooleanConverter}}"
-                               Text="{Binding UrlForScanning, Mode=TwoWay}"
-                               Keyboard="Url">
-                            <Entry.Effects>
-                                <effects:EntryRemoveBorder />
-                                <effects:EntryRemoveLine />
-                                <effects:EntryDisableAutoCorrect />
-                                <effects:EntryCapitalizeKeyboard />
-                            </Entry.Effects>
-                             <Entry.Behaviors>
-                                <b:EventToCommandBehavior EventName="Completed" 
-                                                      Command="{Binding StartUrlScanningCommand}" />
-                            </Entry.Behaviors>
-                        </Entry>
+                    <Entry Placeholder="https://mysite.com" 
+                           Margin="0" BackgroundColor="Transparent" 
+                           FontSize="26"
+                           IsEnabled="{Binding IsBusy, Converter={StaticResource NegateBooleanConverter}}"
+                           Text="{Binding UrlForScanning.Value, Mode=TwoWay}"
+                           Keyboard="Url">
+                         <Entry.Behaviors>
+                            <b:EventToCommandBehavior EventName="TextChanged" 
+                                                  Command="{Binding ValidateUrlCommand}" />
+                            <b:EventToCommandBehavior EventName="Completed" 
+                                                  Command="{Binding StartUrlScanningCommand}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>  
+                            <DataTrigger   
+                                TargetType="Entry"  
+                                Binding="{Binding UrlForScanning.IsValid}"  
+                                Value="False">  
+                                <Setter Property="behaviors:LineColorBehavior.LineColor"   
+                                        Value="{StaticResource TagError}" />  
+                            </DataTrigger>  
+                        </Entry.Triggers>  
+                    </Entry>
+                    
                     <ActivityIndicator HorizontalOptions="Center" 
                                        IsRunning="{Binding IsBusy}" 
                                        IsVisible="{Binding IsBusy}"/>
+                    
                     <custom:AnimatedButton Text="Submit"  
                                            WidthRequest="120"
-                                           FontSize="Small"
+                                           Margin="0,15,0,0"
+                                           FontSize="Medium"
                                            HeightRequest="30"
                                            Style="{StaticResource animatedButton}" 
                                            HorizontalOptions="Center"
@@ -91,9 +103,125 @@
                 </StackLayout>
                 
                 
-                <!--  Security  -->
-                <!-- <Label Style="{StaticResource SubHeader}" Text="Previous Results" /> -->
+                
+                <Label Style="{StaticResource SubHeader}" VerticalOptions="End" Text="Previous Results" />
                
+                <ScrollView HorizontalScrollBarVisibility="Never" 
+                            Margin="0,5,0,60"
+                            VerticalOptions="End" Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal">
+                        <pancake:PancakeView  CornerRadius="10">
+                            <Grid
+                                BackgroundColor="#B3E5FC"
+                                HeightRequest="100"
+                                WidthRequest="150">
+                                <StackLayout Padding="12,40,12,12" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image WidthRequest="12" Source="ic_location"  VerticalOptions="Center"/>
+                                        <Label VerticalOptions="Center" FontAttributes="Bold" 
+                                               Text="Singapore" Style="{StaticResource ValueLabel}" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image WidthRequest="12" Source="ic_" VerticalOptions="Center"/>
+                                        <Label VerticalOptions="Center" Style="{StaticResource ValueLabel}" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="1234" FontAttributes="Bold" Style="{StaticResource ValueLabel}"/>
+                                                    <Span Text=" (ms)" Style="{StaticResource ValueLabel}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                
+                                <Frame
+                                    Margin="5"
+                                    Padding="10,5"
+                                    BackgroundColor="{StaticResource TagSuccess}"
+                                    CornerRadius="15"
+                                    HasShadow="False"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Start">
+                                    <Label Style="{StaticResource TagLabel}" Text="Success" />
+                                </Frame>
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView CornerRadius="10">
+                            <Grid
+                                BackgroundColor="#B3E5FC"
+                                HeightRequest="100"
+                                WidthRequest="150">
+                                 <StackLayout Padding="12,40,12,12" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image WidthRequest="12" Source="ic_location" VerticalOptions="Center"/>
+                                        <Label VerticalOptions="Center" FontAttributes="Bold" 
+                                               Text="Singapore" Style="{StaticResource ValueLabel}" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image WidthRequest="12" Source="ic_time" VerticalOptions="Center"/>
+                                        <Label VerticalOptions="Center" Style="{StaticResource ValueLabel}" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="523" FontAttributes="Bold" Style="{StaticResource ValueLabel}"/>
+                                                    <Span Text=" (ms)" Style="{StaticResource ValueLabel}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                <Frame
+                                    Margin="5"
+                                    Padding="10,5"
+                                    BackgroundColor="{StaticResource TagError}"
+                                    CornerRadius="15"
+                                    HasShadow="False"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Start">
+                                    <Label Style="{StaticResource TagLabel}" Text="Failed" />
+                                </Frame>
+                            </Grid>
+                        </pancake:PancakeView>
+                        <pancake:PancakeView CornerRadius="10">
+                            <Grid
+                                BackgroundColor="#B3E5FC"
+                                HeightRequest="100"
+                                WidthRequest="150">
+                                <Image Aspect="AspectFill" Source="Room3" />
+                                <StackLayout Padding="12,40,12,12" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image WidthRequest="12" Source="ic_location" VerticalOptions="Center"/>
+                                        <Label VerticalOptions="Center" FontAttributes="Bold" 
+                                               Text="London" Style="{StaticResource ValueLabel}" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image WidthRequest="12" Source="ic_time" VerticalOptions="Center"/>
+                                        <Label VerticalOptions="Center" Style="{StaticResource ValueLabel}" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="923" FontAttributes="Bold" Style="{StaticResource ValueLabel}"/>
+                                                    <Span Text=" (ms)" Style="{StaticResource ValueLabel}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                <Frame
+                                    Margin="5"
+                                    Padding="10,5"
+                                    BackgroundColor="{StaticResource TagSuccess}"
+                                    CornerRadius="15"
+                                    HasShadow="False"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Start">
+                                    <Label Style="{StaticResource TagLabel}" Text="Success" />
+                                </Frame>
+                            </Grid>
+                        </pancake:PancakeView>
+
+
+                    </StackLayout>
+                </ScrollView>
+                
             </StackLayout>
         </Grid>
     </ContentView.Content>
