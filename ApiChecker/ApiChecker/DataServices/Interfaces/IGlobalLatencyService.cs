@@ -6,6 +6,6 @@ namespace ApiChecker.DataServices.Interfaces
 {
     public interface IGlobalLatencyService
     {
-        Task<GlobalLatencyModel> VeifyGlobalLatencyForService(GlobalLatenctyRequest globalLatenctyRequest);
+        Task<GlobalLatencyModel> VeifyGlobalLatencyForService(GlobalLatenctyRequestModel globalLatenctyRequest);
     }
 }

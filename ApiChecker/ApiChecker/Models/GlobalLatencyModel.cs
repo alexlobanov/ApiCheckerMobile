@@ -12,6 +12,6 @@ namespace ApiChecker.Models
 
         public string Url { get; set; }
 
-        public IList<VerifyLocationResultModel> LocationsTested { get; set; }
+        public IList<GlobalLocationModel> LocationsTested { get; set; }
     }
 }

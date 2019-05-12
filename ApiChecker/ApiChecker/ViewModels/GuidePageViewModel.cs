@@ -31,7 +31,7 @@ namespace ApiChecker.ViewModels
         public void CloseCommandAction()
         {
             Settings.IsTutorialCompleted = true;
-            NavigationService.NavigateAsync(nameof(MainPage));
+            NavigationService.NavigateAsync(nameof(NavigationPage) + "/" + nameof(MainPage));
         }
 
 

@@ -19,7 +19,7 @@ namespace ApiChecker.Services
         public string GetMainPagePath()
         {
             if (Helpers.Settings.IsTutorialCompleted)
-                return nameof(MainPage);
+                return nameof(NavigationPage) + "/" + nameof(MainPage);
             else
                 return nameof(GuidePage);
         }

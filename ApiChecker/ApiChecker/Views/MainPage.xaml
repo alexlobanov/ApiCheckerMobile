@@ -2,12 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="ApiChecker.Views.MainPage" 
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              xmlns:custom="clr-namespace:ApiChecker.Controls"
+             xmlns:converters="clr-namespace:ApiChecker.Converters"
+             NavigationPage.HasNavigationBar="False"
+            
              xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
              Title="{Binding Title}">
+    <ContentPage.Resources>
+         <ResourceDictionary>
+            <converters:NegateBooleanConverter x:Key="NegateBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentView.Content>
-        <Grid>
+        <Grid VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -17,7 +26,7 @@
                 Aspect="AspectFill"
                 Source="Background" />
             
-            <StackLayout Padding="20,30,20,0">
+            <StackLayout VerticalOptions="FillAndExpand" Padding="20,30,20,0">
                  <!--  Header Section  -->
                 <Grid Margin="0,20,0,0">
                     <Grid.ColumnDefinitions>
@@ -26,7 +35,7 @@
                     </Grid.ColumnDefinitions>
 
                     <StackLayout>
-                        <Label Style="{StaticResource Header}" Text="Global Latency Verifier" />
+                        <Label Style="{StaticResource Header}" Text="Latency Verifier" />
                         <Label>
                             <Label.FormattedText>
                                 <FormattedString>
@@ -46,18 +55,14 @@
                      <Label>
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Style="{StaticResource SubTextSemiBold}" Text="Please input your Website or API address in field below" />
+                                <Span Style="{StaticResource SubTextSemiBold}" Text="Input your Website address in field below:" />
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-                    <pancake:PancakeView
-                                        BackgroundColor="Transparent" 
-                                        WidthRequest="300"
-                                        HasShadow="true"
-                                        CornerRadius="15,15,15,15" 
-                                        IsClippedToBounds="true">
+              
                         <Entry Placeholder="https://mysite.com" 
                                Margin="0" BackgroundColor="Transparent" 
+                               FontSize="26"
                                IsEnabled="{Binding IsBusy, Converter={StaticResource NegateBooleanConverter}}"
                                Text="{Binding UrlForScanning, Mode=TwoWay}"
                                Keyboard="Url">
@@ -72,9 +77,14 @@
                                                       Command="{Binding StartUrlScanningCommand}" />
                             </Entry.Behaviors>
                         </Entry>
-                    </pancake:PancakeView>
+                    <ActivityIndicator HorizontalOptions="Center" 
+                                       IsRunning="{Binding IsBusy}" 
+                                       IsVisible="{Binding IsBusy}"/>
                     <custom:AnimatedButton Text="Submit"  
-                                           WidthRequest="220"
+                                           WidthRequest="120"
+                                           FontSize="Small"
+                                           HeightRequest="30"
+                                           Style="{StaticResource animatedButton}" 
                                            HorizontalOptions="Center"
                                            CornerRadius="12"
                                            Command="{Binding StartUrlScanningCommand}"/>
@@ -82,7 +92,7 @@
                 
                 
                 <!--  Security  -->
-                <Label Style="{StaticResource SubHeader}" Text="Previous Results" />
+                <!-- <Label Style="{StaticResource SubHeader}" Text="Previous Results" /> -->
                
             </StackLayout>
         </Grid>

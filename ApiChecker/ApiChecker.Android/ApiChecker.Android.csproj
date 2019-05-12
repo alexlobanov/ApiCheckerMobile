@@ -79,6 +79,12 @@
     <PackageReference Include="FormsCommunityToolkit.Effects">
       <Version>1.0.0.110-beta</Version>
     </PackageReference>
+    <PackageReference Include="Microcharts">
+      <Version>0.8.5-pre</Version>
+    </PackageReference>
+    <PackageReference Include="Microcharts.Forms">
+      <Version>0.8.5-pre</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

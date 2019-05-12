@@ -16,9 +16,9 @@ namespace ApiChecker.DataServices
             _requestProvider = requestProvider;
         }
 
-        public async Task<GlobalLatencyModel> VeifyGlobalLatencyForService(GlobalLatenctyRequest globalLatenctyRequest)
+        public async Task<GlobalLatencyModel> VeifyGlobalLatencyForService(GlobalLatenctyRequestModel globalLatenctyRequest)
         {
-            GlobalLatencyModel globalLatency = await _requestProvider.PostAsync<GlobalLatenctyRequest, GlobalLatencyModel>(GlobalSettings.ApiCheckerEndpoint, globalLatenctyRequest);
+            GlobalLatencyModel globalLatency = await _requestProvider.PostAsync<GlobalLatenctyRequestModel, GlobalLatencyModel>(GlobalSettings.ApiCheckerEndpoint, globalLatenctyRequest);
             if (globalLatency == null)
             {
                 throw new GlobalLatencyFailedException("GlobalLatency not avalible for your service or you already reach request limit");

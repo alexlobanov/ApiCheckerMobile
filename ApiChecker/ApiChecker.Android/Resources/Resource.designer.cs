@@ -3810,6 +3810,7 @@ namespace ApiChecker.Droid
 			global::FormsCommunityToolkit.Effects.Droid.Resource.Styleable.ViewStubCompat_android_id = global::ApiChecker.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::FormsCommunityToolkit.Effects.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId = global::ApiChecker.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::FormsCommunityToolkit.Effects.Droid.Resource.Styleable.ViewStubCompat_android_layout = global::ApiChecker.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::Microcharts.Droid.Resource.String.library_name = global::ApiChecker.Droid.Resource.String.library_name;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::ApiChecker.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::ApiChecker.Droid.Resource.Attribute.coordinatorLayoutStyle;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::ApiChecker.Droid.Resource.Attribute.font;

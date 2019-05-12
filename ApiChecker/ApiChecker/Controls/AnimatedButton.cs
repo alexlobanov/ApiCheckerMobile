@@ -8,7 +8,6 @@ namespace ApiChecker.Controls
     {
         public AnimatedButton() : base()
         {
-            BackgroundColor = Color.Transparent;
             const int _animationTime = 100;
             Clicked += async (sender, e) =>
             {

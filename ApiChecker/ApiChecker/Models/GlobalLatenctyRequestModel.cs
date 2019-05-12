@@ -1,21 +1,24 @@
 ﻿using System;
+using Newtonsoft.Json;
+
 namespace ApiChecker.Models
 {
-    public class GlobalLatenctyRequest
+    public class GlobalLatenctyRequestModel
     {
+        [JsonProperty("url")]
         public Uri Uri { get; set; }
 
-        public GlobalLatenctyRequest()
+        public GlobalLatenctyRequestModel()
         {
 
         }
 
-        public GlobalLatenctyRequest(string url)
+        public GlobalLatenctyRequestModel(string url)
         {
             Uri = new Uri(url);
         }
 
-        public GlobalLatenctyRequest(Uri uri)
+        public GlobalLatenctyRequestModel(Uri uri)
         {
             Uri = uri;
         }
