@@ -23,6 +23,7 @@ Currently supporting only:
 
 ## Roadmap:
 
+* Add Icon for Android & iOS and modify SplashScreen Storyboard (WIP currently)
 * Internalization Support (WIP currently)
 * Persistent Storage For Checks (so you can see the diff between checks/verifies)
 * Login with your ApiChecker Account
