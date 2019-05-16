@@ -30,6 +30,8 @@ Currently supporting only:
 * Create PushNotifications alerts directly to your mobile
 * TBD
 
+## GIF
+![ApiChecker Gif](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/apiChecker_gif.gif)
 
 ## Screenshots:
 ![ApiChecker Screenshot 2](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/screen_2.png)
