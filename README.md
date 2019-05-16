@@ -1,5 +1,8 @@
 # ApiChecker Mobile Client (only Public Latency Check now)
 
+This project is using API from another my side-project: [ApiChecker](https://apichecker.com).
+I also created organization for ApiChecker [here](https://github.com/apichecker-com/).
+
 ## Basic description
 Application Name | ApiChecker Mobile
 ----------------:|:---
