@@ -34,8 +34,7 @@ Currently supporting only:
 ![ApiChecker Gif](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/apiChecker_gif.gif)
 
 ## Screenshots:
-![ApiChecker Screenshot 2](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/screen_2.png)
+![ApiChecker Screenshot 3](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/screen_3.png?raw=true)
+![ApiChecker Screenshot 2](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/screen_2.png?raw=true)
 
-![ApiChecker Screenshot 3](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/screen_3.png)
-![ApiChecker Screenshot 1](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/screen_1.png)
 
