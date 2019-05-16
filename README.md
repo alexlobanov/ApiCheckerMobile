@@ -28,5 +28,9 @@ Currently supporting only:
 * TBD
 
 
-#Screenshots:
+## Screenshots:
+![ApiChecker Screenshot 2](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/screen_2.png)
+
+![ApiChecker Screenshot 3](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/screen_3.png)
+![ApiChecker Screenshot 1](https://github.com/alexlobanov/ApiCheckerMobile/blob/master/images/screen_1.png)
 
