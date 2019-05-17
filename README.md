@@ -3,6 +3,8 @@
 This project is using API from another my side-project: [ApiChecker](https://apichecker.com).
 I also created organization for ApiChecker [here](https://github.com/apichecker-com/).
 
+ApiChecker API Documentation can be find here as well: [docs.apichecker.com](https://docs.apichecker.com)
+
 ## Basic description
 Application Name | ApiChecker Mobile
 ----------------:|:---
@@ -19,7 +21,7 @@ This project was created using the Xamarin.Forms and Prism MVVM framework.
 
 Currently supporting only:
 
-* Latency Check Feature (based on ApiChecker Open API without auth)
+* Global Latency Check Feature, powered by [app.apichecker.com/public/latency/](https://app.apichecker.com/public/latency/) Open API (without auth, but with request throttling/limits)
 
 ## Roadmap:
 
